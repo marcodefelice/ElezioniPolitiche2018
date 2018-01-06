@@ -5,6 +5,7 @@
         "webpack-dev-server": "^2.10.0"
     },
     "scripts": {
-        "build": "webpack"
+        "build": "webpack",
+        "dev": "webpack-dev-server"
     }
 }
