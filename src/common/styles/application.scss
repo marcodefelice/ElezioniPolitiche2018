@@ -1,0 +1,13 @@
+.title {
+    color: red;
+    & .cassa {
+        display: block;
+        background-color: red;
+    }
+}
+
+$test: 30px;
+
+.title {
+    font-size: $test;
+}

@@ -1,29 +1,24 @@
 // https://nodejs.org/api/path.html
-const path = require('path');
+const { resolve, join } = require('path');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 // Constant with our paths
 const paths = {
-    DIST: path.resolve(__dirname, 'dist'),
-    SRC: path.resolve(__dirname, 'src'),
-    JS: path.resolve(__dirname, 'src/js'),
+    DIST: resolve(__dirname, 'dist'),
+    SRC: resolve(__dirname, 'src'),
+    JS: resolve(__dirname, 'src', 'js'),
+    CLIENT: resolve(__dirname, 'src', 'client')
 };
 
 // Webpack configuration
 module.exports = {
-    entry: path.join(paths.JS, 'app.js'),
+    entry: join(paths.CLIENT, 'index.js'),
     output: {
         path: paths.DIST,
         filename: 'app.bundle.js'
     },
-    plugins: [
-        new HtmlWebpackPlugin({
-            template: path.join(paths.SRC, 'index.html')
-        }),
-        new ExtractTextPlugin('style.bundle.css')
-    ],
     module: {
         rules: [
             {
@@ -34,9 +29,10 @@ module.exports = {
                 ],
             },
             {
-                test: /\.css$/,
+                test: /\.scss$/,
                 loader: ExtractTextPlugin.extract({
-                    use: 'css-loader',
+                    fallback: 'style-loader',
+                    use: ['css-loader', 'sass-loader']
                 }),
             },
             {
@@ -49,5 +45,11 @@ module.exports = {
     },
     resolve: {
         extensions: ['.js', '.jsx'],
-    }
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: join(paths.SRC, 'index.html')
+        }),
+        new ExtractTextPlugin('style.bundle.css')
+    ],
 };
