@@ -1,15 +1,14 @@
 import React, { Fragment } from 'react';
 
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
+
 export default () => (
     <Fragment>
-        <header>
-            Header
-        </header>
+        <Header />
         <main>
             Body
         </main>
-        <footer>
-            Footer
-        </footer>
+        <Footer />
     </Fragment>
 );

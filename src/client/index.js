@@ -7,7 +7,7 @@ import App from '../common/containers/App';
 /**
  * Require main styles
  */
-import '../common/styles/application.scss';
+import '../common/styles/index.scss';
 
 /**
  * Render App component
