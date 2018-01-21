@@ -10,14 +10,9 @@ const paths = {
     DIST: resolve(__dirname, 'dist'),
     SRC: resolve(__dirname, 'src'),
     CLIENT: resolve(__dirname, 'src', 'client'),
-    COMMON: resolve(__dirname, 'src', 'common'),
-    COMPONENTS: resolve(__dirname, 'src', 'common', 'components'),
-    CONTAINERS: resolve(__dirname, 'src', 'common', 'containers'),
-    STYLES: resolve(__dirname, 'src', 'common', 'styles'),
     IMAGES: resolve(__dirname, 'src', 'assets', 'images'),
     FONTS: resolve(__dirname, 'src', 'assets', 'fonts'),
 };
-
 
 // Webpack configuration
 module.exports = {
@@ -69,13 +64,6 @@ module.exports = {
     },
     resolve: {
         extensions: ['.js', '.jsx'],
-        alias: {
-            'components': paths.COMPONENTS,
-            'client': paths.CLIENT,
-            'containers': paths.CONTAINERS,
-            'styles': paths.STYLES,
-            'common': paths.COMMON
-        }
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
