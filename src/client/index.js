@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { render } from 'react-dom';
 
-import App from '../common/containers/App';
+import App from 'containers/App';
 
 /**
  * Require main styles
  */
-import '../common/styles/index.scss';
+import 'styles/index.scss';
 
 /**
  * Render App component
