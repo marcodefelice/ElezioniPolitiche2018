@@ -1,5 +1,5 @@
-// @import '~/common/styles/_colors';
+@import '~styles/index';
 
 .root {
-    color: red;
+    color: $color-secondary;
 }
